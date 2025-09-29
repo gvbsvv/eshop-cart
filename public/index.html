@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EShop Cart API Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .endpoint-group {
+            margin: 20px 0;
+        }
+        .endpoint {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .endpoint:hover {
+            background: #0056b3;
+        }
+        .get { background: #28a745; }
+        .get:hover { background: #1e7e34; }
+        .post { background: #007bff; }
+        .post:hover { background: #0056b3; }
+        .put { background: #ffc107; color: #212529; }
+        .put:hover { background: #d39e00; }
+        .delete { background: #dc3545; }
+        .delete:hover { background: #b21f2c; }
+        .form-container {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .response {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛒 EShop Cart API Tester</h1>
+        <p>Test your EShop Cart REST API endpoints directly from the browser!</p>
+    </div>
+
+    <div class="container">
+        <h2>📋 GET Endpoints (Direct Browser Links)</h2>
+        
+        <div class="endpoint-group">
+            <h3>Basic Info</h3>
+            <a href="http://localhost:3000/" class="endpoint get" target="_blank">GET / - Welcome Message</a>
+        </div>
+
+        <div class="endpoint-group">
+            <h3>Parts Listing & Search</h3>
+            <a href="http://localhost:3000/api/parts" class="endpoint get" target="_blank">GET /api/parts - All Parts</a>
+            <a href="http://localhost:3000/api/parts?page=1&limit=3" class="endpoint get" target="_blank">GET /api/parts - First 3 Parts</a>
+            <a href="http://localhost:3000/api/parts?search=brake" class="endpoint get" target="_blank">GET /api/parts - Search "brake"</a>
+            <a href="http://localhost:3000/api/parts?search=engine" class="endpoint get" target="_blank">GET /api/parts - Search "engine"</a>
+            <a href="http://localhost:3000/api/parts?category=Engine" class="endpoint get" target="_blank">GET /api/parts - Engine Category</a>
+            <a href="http://localhost:3000/api/parts?manufacturer=AutoParts Pro" class="endpoint get" target="_blank">GET /api/parts - By Manufacturer</a>
+            <a href="http://localhost:3000/api/parts?minPrice=20&maxPrice=50" class="endpoint get" target="_blank">GET /api/parts - Price Range $20-$50</a>
+            <a href="http://localhost:3000/api/parts?inStock=true" class="endpoint get" target="_blank">GET /api/parts - In Stock Only</a>
+        </div>
+
+        <div class="endpoint-group">
+            <h3>Individual Parts</h3>
+            <a href="http://localhost:3000/api/parts/1" class="endpoint get" target="_blank">GET /api/parts/1 - Oil Filter</a>
+            <a href="http://localhost:3000/api/parts/2" class="endpoint get" target="_blank">GET /api/parts/2 - Brake Pads</a>
+            <a href="http://localhost:3000/api/parts/5" class="endpoint get" target="_blank">GET /api/parts/5 - Battery</a>
+        </div>
+
+        <div class="endpoint-group">
+            <h3>Metadata</h3>
+            <a href="http://localhost:3000/api/parts/meta/categories" class="endpoint get" target="_blank">GET /api/parts/meta/categories</a>
+            <a href="http://localhost:3000/api/parts/meta/manufacturers" class="endpoint get" target="_blank">GET /api/parts/meta/manufacturers</a>
+        </div>
+
+        <div class="endpoint-group">
+            <h3>Cart (Read Only)</h3>
+            <a href="http://localhost:3000/api/cart/demo-user" class="endpoint get" target="_blank">GET /api/cart/demo-user - View Cart</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🔧 Interactive API Tester</h2>
+        
+        <div class="form-container">
+            <h3>Add Item to Cart</h3>
+            <input type="text" id="cartId" placeholder="Cart ID (e.g., user123)" value="demo-user">
+            <input type="number" id="partId" placeholder="Part ID (1-12)" value="1" min="1" max="12">
+            <input type="number" id="quantity" placeholder="Quantity" value="1" min="1">
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="form-container">
+            <h3>Update Item Quantity</h3>
+            <input type="text" id="updateCartId" placeholder="Cart ID" value="demo-user">
+            <input type="number" id="updatePartId" placeholder="Part ID" value="1" min="1" max="12">
+            <input type="number" id="updateQuantity" placeholder="New Quantity" value="2" min="0">
+            <button onclick="updateCart()">Update Quantity</button>
+        </div>
+
+        <div class="form-container">
+            <h3>Cart Actions</h3>
+            <input type="text" id="actionCartId" placeholder="Cart ID" value="demo-user">
+            <button onclick="getCart()">Get Cart</button>
+            <button onclick="clearCart()">Clear Cart</button>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+
+        <div id="response" class="response" style="display:none;">
+            <h4>Response:</h4>
+            <div id="responseContent"></div>
+        </div>
+    </div>
+
+    <script>
+        async function makeRequest(url, method = 'GET', body = null) {
+            try {
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                };
+                
+                if (body) {
+                    options.body = JSON.stringify(body);
+                }
+
+                const response = await fetch(url, options);
+                const data = await response.json();
+                
+                showResponse({
+                    status: response.status,
+                    statusText: response.statusText,
+                    data: data
+                });
+                
+            } catch (error) {
+                showResponse({
+                    error: error.message
+                });
+            }
+        }
+
+        function showResponse(response) {
+            document.getElementById('response').style.display = 'block';
+            document.getElementById('responseContent').textContent = JSON.stringify(response, null, 2);
+        }
+
+        function addToCart() {
+            const cartId = document.getElementById('cartId').value;
+            const partId = document.getElementById('partId').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            makeRequest(`http://localhost:3000/api/cart/${cartId}/add`, 'POST', {
+                partId: parseInt(partId),
+                quantity: parseInt(quantity)
+            });
+        }
+
+        function updateCart() {
+            const cartId = document.getElementById('updateCartId').value;
+            const partId = document.getElementById('updatePartId').value;
+            const quantity = document.getElementById('updateQuantity').value;
+            
+            makeRequest(`http://localhost:3000/api/cart/${cartId}/update/${partId}`, 'PUT', {
+                quantity: parseInt(quantity)
+            });
+        }
+
+        function getCart() {
+            const cartId = document.getElementById('actionCartId').value;
+            makeRequest(`http://localhost:3000/api/cart/${cartId}`);
+        }
+
+        function clearCart() {
+            const cartId = document.getElementById('actionCartId').value;
+            makeRequest(`http://localhost:3000/api/cart/${cartId}/clear`, 'DELETE');
+        }
+
+        function checkout() {
+            const cartId = document.getElementById('actionCartId').value;
+            makeRequest(`http://localhost:3000/api/cart/${cartId}/checkout`, 'POST');
+        }
+    </script>
+</body>
+</html>
