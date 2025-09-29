@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Engine Oil Filter",
+    "description": "High-performance oil filter for gasoline engines",
+    "manufacturer": "AutoParts Pro",
+    "price": 15.99,
+    "category": "Engine",
+    "inStock": true,
+    "stockQuantity": 150,
+    "imageUrl": "/images/oil-filter.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Brake Pads Set",
+    "description": "Premium ceramic brake pads for front wheels",
+    "manufacturer": "BrakeMax",
+    "price": 89.99,
+    "category": "Brakes",
+    "inStock": true,
+    "stockQuantity": 75,
+    "imageUrl": "/images/brake-pads.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Air Filter",
+    "description": "High-flow air filter for improved engine performance",
+    "manufacturer": "AirFlow Systems",
+    "price": 24.50,
+    "category": "Engine",
+    "inStock": true,
+    "stockQuantity": 200,
+    "imageUrl": "/images/air-filter.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Spark Plugs (Set of 4)",
+    "description": "Platinum spark plugs for better fuel efficiency",
+    "manufacturer": "IgnitionTech",
+    "price": 45.00,
+    "category": "Engine",
+    "inStock": true,
+    "stockQuantity": 120,
+    "imageUrl": "/images/spark-plugs.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Battery",
+    "description": "12V maintenance-free car battery",
+    "manufacturer": "PowerCell",
+    "price": 129.99,
+    "category": "Electrical",
+    "inStock": true,
+    "stockQuantity": 45,
+    "imageUrl": "/images/battery.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Radiator Coolant",
+    "description": "Premium antifreeze coolant for all seasons",
+    "manufacturer": "CoolFlow",
+    "price": 18.75,
+    "category": "Cooling",
+    "inStock": true,
+    "stockQuantity": 180,
+    "imageUrl": "/images/coolant.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Transmission Fluid",
+    "description": "Synthetic transmission fluid for automatic transmissions",
+    "manufacturer": "TransMax",
+    "price": 32.99,
+    "category": "Transmission",
+    "inStock": false,
+    "stockQuantity": 0,
+    "imageUrl": "/images/transmission-fluid.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Tire Pressure Sensor",
+    "description": "TPMS sensor for monitoring tire pressure",
+    "manufacturer": "TireTech",
+    "price": 67.50,
+    "category": "Tires",
+    "inStock": true,
+    "stockQuantity": 90,
+    "imageUrl": "/images/tpms-sensor.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Windshield Wipers",
+    "description": "All-weather windshield wiper blades (pair)",
+    "manufacturer": "ClearView",
+    "price": 28.99,
+    "category": "Exterior",
+    "inStock": true,
+    "stockQuantity": 165,
+    "imageUrl": "/images/wipers.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Headlight Bulbs",
+    "description": "LED headlight bulb replacement kit",
+    "manufacturer": "BrightLite",
+    "price": 55.00,
+    "category": "Lighting",
+    "inStock": true,
+    "stockQuantity": 80,
+    "imageUrl": "/images/headlight-bulbs.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Fuel Filter",
+    "description": "Inline fuel filter for gasoline engines",
+    "manufacturer": "FuelPure",
+    "price": 19.99,
+    "category": "Fuel System",
+    "inStock": true,
+    "stockQuantity": 135,
+    "imageUrl": "/images/fuel-filter.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Alternator Belt",
+    "description": "Serpentine belt for alternator and accessories",
+    "manufacturer": "BeltDrive",
+    "price": 35.75,
+    "category": "Engine",
+    "inStock": true,
+    "stockQuantity": 95,
+    "imageUrl": "/images/alternator-belt.jpg"
+  }
+]
