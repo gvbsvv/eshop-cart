@@ -71,6 +71,14 @@ npm start
 
 The server will start on `http://localhost:3000`
 
+## 🌐 Browser Testing Interface
+
+Visit **http://localhost:3000/index.html** for an interactive API testing interface that includes:
+- Direct browser links for all GET endpoints
+- Interactive forms for testing POST/PUT/DELETE operations
+- Easy-to-use cart management tools
+- Real-time API responses
+
 ## Usage Examples
 
 ### Get Parts List
